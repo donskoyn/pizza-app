@@ -6,8 +6,8 @@
       "name": "Pepperoni Fresh with pepper",
       "types": ["Thin", "Traditional"],
       "sizes": [26, 30, 40],
-      "price": 803,
-      "category": 0,
+      "price": 32,
+      "category": "Vegetarian",
       "rating": 4
     },
     {
@@ -16,8 +16,8 @@
       "name": "Cheese",
       "types": ["Thin"],
       "sizes": [26, 40],
-      "price": 245,
-      "category": 1,
+      "price": 14,
+      "category": "Grill",
       "rating": 6
     },
     {
@@ -26,8 +26,8 @@
       "name": "BBQ chicken",
       "types": ["Thin","Traditional"],
       "sizes": [26, 40],
-      "price": 295,
-      "category": 1,
+      "price": 15,
+      "category": "Meat",
       "rating": 4
     },
     {
@@ -36,8 +36,8 @@
       "name": "Sweet and sour chicken",
       "types": ["Traditional"],
       "sizes": [26, 30, 40],
-      "price": 275,
-      "category": 2,
+      "price": 25,
+      "category": "Meat",
       "rating": 2
     },
     {
@@ -46,8 +46,8 @@
       "name": "Cheeseburger Pizza",
       "types": ["Thin", "Traditional"],
       "sizes": [26, 30, 40],
-      "price": 415,
-      "category": 3,
+      "price": 25,
+      "category": "Meat",
       "rating": 8
     },
     {
@@ -56,8 +56,8 @@
       "name": "Crazy Pepperoni",
       "types": ["Thin"],
       "sizes": [30, 40],
-      "price": 580,
-      "category": 2,
+      "price": 27,
+      "category": "Spicy",
       "rating": 2
     },
     {
@@ -66,8 +66,8 @@
       "name": "Pepperoni",
       "types": ["Thin", "Traditional"],
       "sizes": [26, 30, 40],
-      "price": 675,
-      "category": 1,
+      "price": 23,
+      "category": "Meat",
       "rating": 9
     },
     {
@@ -76,8 +76,8 @@
       "name": "Margarita",
       "types": ["Thin", "Traditional"],
       "sizes": [26, 30, 40],
-      "price": 450,
-      "category": 4,
+      "price": 19,
+      "category": "Grill",
       "rating": 10
     },
     {
@@ -86,8 +86,8 @@
       "name": "Four seasons",
       "types": ["Thin", "Traditional"],
       "sizes": [26, 30, 40],
-      "price": 395,
-      "category": 5,
+      "price": 12,
+      "category": "Closed",
       "rating": 10
     },
     {
@@ -96,8 +96,8 @@
       "name": "Vegetables and mushrooms",
       "types": ["Thin", "Traditional"],
       "sizes": [26, 30, 40],
-      "price": 285,
-      "category": 5,
+      "price": 18,
+      "category": "Vegetarian",
       "rating": 7
     }
   ]

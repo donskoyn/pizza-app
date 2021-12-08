@@ -8,6 +8,10 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        width: $container-width;
+        margin: 0 auto;
+
+        .buttonCart {}
     }
 
     &__logo {
