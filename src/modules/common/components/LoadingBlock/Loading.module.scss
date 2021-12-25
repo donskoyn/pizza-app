@@ -1,0 +1,16 @@
+.anim {
+    margin: 10vh auto;
+    width: 100px;
+    height: 100vh;
+
+    img {
+        animation: pizza-rotate 1s infinite linear;
+        width: 12vw;
+    }
+}
+
+@keyframes pizza-rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}

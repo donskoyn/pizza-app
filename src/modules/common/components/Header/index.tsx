@@ -5,7 +5,8 @@ import { useSelector } from 'react-redux';
 import { getOptions } from '../../tools/getOptions';
 import { RootState } from '../../../app/store';
 import { CartObjNew } from '../../interfaces';
-import { getOptionsConstant } from '../constants';
+import { getOptionsConstant } from '../../constants';
+import styles from './Header.module.scss';
 
 const Header: React.FC = (): JSX.Element => {
     const [pizzaState, setPizzaState] = useState<CartObjNew[]>([])
@@ -16,9 +17,9 @@ const Header: React.FC = (): JSX.Element => {
         setPizzaState(pizzasCart)
     }, [pizzasCart])
     return (
-        <div className="header">
-            <div className="container">
-                <div className="header__logo">
+        <div className={styles.header}>
+            <div className={styles.container}>
+                <div className={styles.header__logo}>
                     <img width="38" src={logo} alt="Pizza logo" />
                     <div>
                         <h1>React Pizza</h1>
@@ -26,9 +27,9 @@ const Header: React.FC = (): JSX.Element => {
                     </div>
                 </div>
                 <div className="header__cart">
-                    <Link to="cart" className="button button--cart">
+                    <Link to="cart" className={styles.buttonCart}>
                         <span>{getCountPrice} $</span>
-                        <div className="button__delimiter"></div>
+                        <div className={styles.button__delimiter}></div>
                         <svg
                             width="18"
                             height="18"

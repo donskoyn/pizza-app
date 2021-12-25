@@ -1,0 +1,31 @@
+@import '../../../common/styles/colors.scss';
+
+.categories {
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+
+        li {
+            background-color: $whiteF9;
+            padding: 13px 30px;
+            border-radius: 30px;
+            margin-right: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.1s ease-in-out;
+
+            &:hover {
+                background-color: darken($whiteF9, 2%);
+            }
+
+            &:active {
+                background-color: darken($whiteF9, 5%);
+            }
+
+            &.active {
+                background-color: $gray28;
+                color: $white;
+            }
+        }
+    }
+}

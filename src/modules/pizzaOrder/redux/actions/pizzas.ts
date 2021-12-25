@@ -6,7 +6,7 @@
 import { pizzaOrderTypes } from '../../constants';
 import axios from 'axios';
 import { Pizzas } from '../../../common/interfaces';
-import { Category } from '../types';
+import { Category, SortBy } from '../types';
 
 
 interface SetPizzas {
@@ -27,7 +27,7 @@ export const setLoaded = (payload: boolean): SetLoaded => ({
     payload,
 });
 
-export const loadPizzas = (category: Category) => (dispatch: Function) => {
+export const loadPizzas = (category: Category, sortBy: SortBy) => (dispatch: Function) => {
 
     dispatch({
         type: pizzaOrderTypes.SET_LOADED,
@@ -35,10 +35,15 @@ export const loadPizzas = (category: Category) => (dispatch: Function) => {
     });
 
 
-    axios.get('http://localhost:3000/db.json').then(({ data }) => {
-        dispatch(setPizzas(data.pizzas));
+    axios.get(`http://localhost:3001/pizzas?${category.nameCategory === "All" ? '' : 'category=' + category.nameCategory}&_sort=${sortBy.sortName}`).then(({ data }) => {
+        dispatch(setPizzas(data));
     })
+    setTimeout(() => {
+        dispatch({
+            type: pizzaOrderTypes.SET_LOADED,
+            payload: true
+        });
+    }, 500)
+
 
 }
-
-//как описать диспатч

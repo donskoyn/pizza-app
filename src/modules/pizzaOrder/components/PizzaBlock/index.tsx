@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import classNames from 'classnames';
 import { useDispatch } from 'react-redux';
 import { addPizzasCart } from '../../../cart/redux/actions/cartPizzas'
 import { useSelector } from 'react-redux';
 import { useControlCart } from '../../../common/hooks/useControlCart';
 import { RootState } from '../../../app/store';
 import { Pizzas } from '../../../common/interfaces';
-
+import styles from './PizzaBlock.module.scss';
 
 
 const PizzaBlock: React.FC<Pizzas> = ({ id, imageUrl, name, types, sizes, price, category, rating }): JSX.Element => {
@@ -21,7 +20,7 @@ const PizzaBlock: React.FC<Pizzas> = ({ id, imageUrl, name, types, sizes, price,
     const changeActiveSize = (index: number) => setactiveSize(index);
     const cardPizzas = useSelector(({ pizzasCart }: RootState) => pizzasCart.pizzasCart);
 
-    const { saveInCart } = useControlCart(cardPizzas, (newPizzasCartArr: any) => {
+    const { saveInCart } = useControlCart(cardPizzas, (newPizzasCartArr) => {
         dispatch(addPizzasCart(newPizzasCartArr));
     })
     useEffect(() => {
@@ -51,23 +50,23 @@ const PizzaBlock: React.FC<Pizzas> = ({ id, imageUrl, name, types, sizes, price,
     }
 
     return (
-        <div className="pizza-block">
+        <div className={styles.pizzaBlock}>
             <img
-                className="pizza-block__image"
+                className={styles.__image}
                 src={imageUrl}
                 alt="Pizza"
             />
-            <h4 className="pizza-block__title">{name}</h4>
-            <div className="pizza-block__selector">
+            <h4 className={styles.__title}>{name}</h4>
+            <div className={styles.__selector}>
                 <ul>
                     {
                         types.length === 1 ?
                             arrTypePizza.map((typePizza, index) => {
-                                return <li key={`${id}_${index}`} className={types.includes(typePizza) ? "active" : 'disabled'}>{typePizza}</li>
+                                return <li key={`${id}_${index}`} className={types.includes(typePizza) ? styles.active : styles.disabled}>{typePizza}</li>
                             })
                             :
                             arrTypePizza.map((typePizza, index) => {
-                                return <li key={`${id}_${index}`} onClick={() => changeActiveType(index)} className={activeTypeIndex === index ? "active" : ''}>{typePizza}</li>
+                                return <li key={`${id}_${index}`} onClick={() => changeActiveType(index)} className={activeTypeIndex === index ? styles.active : ''}>{typePizza}</li>
                             })
                     }
                 </ul>
@@ -77,18 +76,16 @@ const PizzaBlock: React.FC<Pizzas> = ({ id, imageUrl, name, types, sizes, price,
                             <li
                                 key={`${id}_${index}`}
                                 onClick={() => changeActiveSize(index)}
-                                className={classNames({
-                                    active: activeSize === index,
-                                    disabled: !sizes.includes(size)
-                                })}>
+                                className={
+                                    `${!sizes.includes(size) && styles.disabled} ${activeSize === index && styles.active}`}>
                                 {size} cm.
                             </li >)
                     })}
                 </ul>
             </div>
-            <div className="pizza-block__bottom">
-                <div className="pizza-block__price">{price} $</div>
-                <div className="button button--outline button--add" onClick={AddToCard}>
+            <div className={styles.__bottom}>
+                <div className={styles.__price}>{price} $</div>
+                <div className={styles.buttonOrder} onClick={AddToCard}>
                     <svg
                         width="12"
                         height="12"

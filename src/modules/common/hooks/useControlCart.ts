@@ -1,8 +1,9 @@
-import { changeCountPizzaConstant } from "../components/constants";
+import { ActionCart } from "../../cart/redux/reducers/cartPizzas";
+import { changeCountPizzaConstant } from "../constants";
 import { CartObjNew } from "../interfaces";
 
 
-export const useControlCart = (arrCarts: CartObjNew[], callback: (p: any) => void) => {
+export const useControlCart = (arrCarts: CartObjNew[], callback: (cart: CartObjNew[]) => void) => {
     const newArr = [...arrCarts];
 
 

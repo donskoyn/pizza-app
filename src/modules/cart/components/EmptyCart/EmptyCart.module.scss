@@ -1,0 +1,49 @@
+@import '../../../common/styles/colors.scss';
+
+.emptyCart {
+    margin: 0 auto;
+    width: 560px;
+    text-align: center;
+
+    h2 {
+        margin-top: 10px;
+        font-size: 32px;
+        margin-bottom: 10px;
+        font-weight: 600;
+        line-height: 30px;
+    }
+
+    p {
+        margin: 20px 0;
+        font-size: 18px;
+        line-height: 145.4%;
+        letter-spacing: 0.01em;
+        color: $grey777;
+    }
+
+    img {
+        margin-top: 20px;
+        display: block;
+        width: 300px;
+        margin: 45px auto 60px;
+    }
+
+    .btnEmpty {
+        display: block;
+        border-radius: 30px;
+        padding: 12px 0 14px;
+        width: 230px;
+        margin: 0 auto;
+        background-color: $black23;
+
+        span {
+            color: $white;
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        &:hover {
+            background-color: $grey3D;
+        }
+    }
+}

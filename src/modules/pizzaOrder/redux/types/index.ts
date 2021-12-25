@@ -1,5 +1,12 @@
 import { filtersTypes } from "../../constants";
 
+
+export interface CategoriesType {
+    typeCategories: string[],
+    activeCategory: Category,
+    changeAtiveCategory: (category: string, i: number) => void
+}
+
 export interface Category {
     nameCategory: string, index: number
 }

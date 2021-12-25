@@ -1,14 +1,13 @@
 import React from 'react';
-import '../common/styles/app.scss';
 import Header from '../common/components/Header'
 import AppRouter from '../common/components/AppRouter';
-
+import styles from './App.module.scss';
 
 const App = () => {
   return (
-    <div className="wrapper">
+    <div className={styles.wrapper}>
       <Header />
-      <div className="content">
+      <div className={styles.content}>
         <AppRouter />
       </div>
     </div>

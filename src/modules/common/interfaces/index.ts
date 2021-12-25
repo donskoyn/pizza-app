@@ -20,4 +20,7 @@ export interface CartObjNew {
     size: number,
     count: number
 }
+export interface CartObjNewWithIndex extends CartObjNew {
+    index: number
+}
 

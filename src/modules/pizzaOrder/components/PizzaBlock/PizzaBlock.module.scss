@@ -1,0 +1,142 @@
+@import '../../../common/styles/colors.scss';
+
+.pizzaBlock {
+    width: 280px;
+    text-align: center;
+    margin-bottom: 65px;
+
+    &:not(:nth-of-type(4n)) {
+        margin-right: 35px;
+    }
+
+
+    .__image {
+        width: 260px;
+    }
+
+    .__title {
+        font-size: 20px;
+        font-weight: 900;
+        letter-spacing: 1%;
+        margin-bottom: 20px;
+    }
+
+    .__selector {
+        display: flex;
+        background-color: $grayF3;
+        border-radius: 10px;
+        flex-direction: column;
+        padding: 6px;
+
+        ul {
+            display: flex;
+            flex: 1;
+
+            &:first-of-type {
+                margin-bottom: 6px;
+            }
+
+            li {
+                padding: 8px;
+                flex: 1;
+                cursor: pointer;
+                font-weight: 600;
+                font-size: 14px;
+            }
+
+            .active {
+                background: #ffffff;
+                box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.04);
+                border-radius: 5px;
+                cursor: auto;
+            }
+
+            .disabled {
+                opacity: 0.4;
+                pointer-events: none;
+            }
+
+
+        }
+    }
+
+    .__bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+
+    .__price {
+        font-weight: bold;
+        font-size: 22px;
+        line-height: 27px;
+        letter-spacing: 0.015em;
+    }
+
+    .buttonOrder {
+        display: inline-block;
+        background-color: $white;
+
+
+        border-radius: 30px;
+        padding: 10px 20px;
+        min-width: 100px;
+        text-align: center;
+        cursor: pointer;
+        transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+        border: 1px solid $orange;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        user-select: none;
+
+        i {
+            display: inline-block;
+            border-radius: 30px;
+            background-color: $orange;
+            color: $white;
+            font-weight: 600;
+            width: 22px;
+            height: 22px;
+            font-style: normal;
+            font-size: 13px;
+            line-height: 22px;
+            position: relative;
+            top: -1px;
+            left: 3px;
+        }
+
+        span {
+            color: $orange;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        svg {
+            margin-right: 2px;
+
+            path {
+                fill: $orange;
+            }
+        }
+
+        &:hover {
+            background-color: $orange;
+
+            i {
+                background-color: $white;
+                color: $orange;
+            }
+
+            span {
+                color: $white;
+            }
+
+            svg {
+                path {
+                    fill: $white;
+                }
+            }
+        }
+    }
+}

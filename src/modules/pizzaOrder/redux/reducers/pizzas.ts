@@ -32,7 +32,6 @@ const pizzasReducer = (
             return {
                 ...state,
                 items: action.payload,
-                loaded: true
             }
         case pizzaOrderTypes.SET_LOADED:
             return { ...state, loaded: action.payload }

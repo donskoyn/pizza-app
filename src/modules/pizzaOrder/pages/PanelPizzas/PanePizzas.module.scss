@@ -1,0 +1,23 @@
+@import '../../../common/styles/colors.scss';
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+
+    .contentTop {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .title {
+        margin: 35px 0;
+    }
+
+    .items {
+        margin-top: 100px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+}

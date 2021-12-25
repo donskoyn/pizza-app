@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../app/store';
 import { setSortBy } from '../../redux/actions/filters';
-
+import styles from './SortByPopUp.module.scss';
 
 
 
@@ -11,7 +11,7 @@ const SortByPopUp: React.FC = (): JSX.Element => {
     const dispatch = useDispatch();
     const activeSort = useSelector(({ filters }: RootState) => filters.sortBy);
     const [openPopUp, setOpenPopUp] = useState(false);
-    const [sortName, setSortName] = useState(['popularity', 'price', 'alphabet']);
+    const [sortName, setSortName] = useState(['popularity', 'price']);
     const sortRef = useRef() as React.MutableRefObject<HTMLDivElement>;
     const changeActivePopUp = () => setOpenPopUp(!openPopUp);
 
@@ -19,18 +19,18 @@ const SortByPopUp: React.FC = (): JSX.Element => {
         dispatch(setSortBy({ sortName, index }));
     }, []);
 
-    const handleOutsideClick = (event: any) => {
-        if (!event.path.includes(sortRef.current)) setOpenPopUp(false);
+    const handleOutsideClick = (event: any): void => {
+        !event.path.includes(sortRef.current) && setOpenPopUp(false);
     };
     useEffect(() => {
         document.body.addEventListener('click', handleOutsideClick);
     }, []);
 
     return (
-        <div ref={sortRef} className="sort">
-            <div className="sort__label">
+        <div ref={sortRef} className={styles.sort}>
+            <div className={styles.__label}>
                 <svg
-                    className={openPopUp ? 'rotated' : ''}
+                    className={openPopUp ? styles.rotated : styles.noRotated}
                     width="10"
                     height="6"
                     viewBox="0 0 10 6"
@@ -45,13 +45,13 @@ const SortByPopUp: React.FC = (): JSX.Element => {
                 <b>Sort by:</b>
                 <span onClick={changeActivePopUp}>{activeSort.sortName}</span>
             </div>
-            {openPopUp && <div className="sort__popup">
+            {openPopUp && <div className={styles.__popup}>
                 <ul>
                     {sortName.map((name: string, i: number) => {
                         return (
                             <li key={`${name}_${i}`}
                                 onClick={() => changeActiveSortObj(name, i)}
-                                className={activeSort.sortName === name && activeSort.index === i ? 'active' : ''}>
+                                className={activeSort.sortName === name && activeSort.index === i ? styles.active : ''}>
                                 {name}
                             </li>
                         )

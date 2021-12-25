@@ -1,7 +1,7 @@
+import { CartObjNew } from "../../../common/interfaces";
 import { cartType } from "../../constants";
-import { ActionCart } from "../reducers/cartPizzas";
 
-export const addPizzasCart = (card: ActionCart) => ({
+export const addPizzasCart = (card: CartObjNew[]) => ({
     type: cartType.ADD_PIZZASCART,
     payload: card
 });

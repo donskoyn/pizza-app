@@ -1,4 +1,4 @@
-import { getOptionsConstant } from "../components/constants";
+import { getOptionsConstant } from "../constants";
 import { CartObjNew } from "../interfaces";
 
 export const getOptions = (arrCart: CartObjNew[], type: string) => {

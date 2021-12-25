@@ -1,17 +1,52 @@
 @import '../../styles/colors.scss';
 
+
 .header {
-    border-bottom: 1px solid $gray-line;
+    border-bottom: 1px solid $grayF6;
     padding: 40px 0;
 
     .container {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        width: $container-width;
+        width: 90%;
         margin: 0 auto;
 
-        .buttonCart {}
+        .buttonCart {
+            display: flex;
+            align-items: center;
+            line-height: 23px;
+            padding: 12px 25px;
+            background-color: $orange;
+            border-radius: 30px;
+            padding: 10px 20px;
+            min-width: 100px;
+            cursor: pointer;
+            transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+            border: 1px solid transparent;
+            user-select: none;
+            color: $white;
+
+            span {
+                font-weight: 600;
+                font-size: 16px;
+                color: $white;
+            }
+
+            svg {
+                margin-right: 8px;
+                margin-bottom: 1px;
+                transition: all 0.15s ease-in-out;
+            }
+
+            .button__delimiter {
+                width: 1px;
+                height: 25px;
+                background-color: $headerDelimiter;
+                margin-left: 14px;
+                margin-right: 14px;
+            }
+        }
     }
 
     &__logo {
@@ -22,7 +57,7 @@
         }
 
         h1 {
-            color: #181818;
+            color: $black18;
             font-size: 24px;
             letter-spacing: 1%;
             text-transform: uppercase;
@@ -30,7 +65,7 @@
         }
 
         p {
-            color: #7b7b7b;
+            color: $gray7b;
         }
     }
 }
