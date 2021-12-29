@@ -4,6 +4,7 @@ import { CartObjNew } from "../interfaces";
 
 
 export const useControlCart = (arrCarts: CartObjNew[], callback: (cart: CartObjNew[]) => void) => {
+
     const newArr = [...arrCarts];
 
 

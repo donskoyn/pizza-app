@@ -13,6 +13,7 @@ const PizzaBlock: React.FC<Pizzas> = ({ id, imageUrl, name, types, sizes, price,
     const dispatch = useDispatch();
     const arrTypePizza = ["Thin", "Traditional"];
     const avilableSizes = [26, 30, 40];
+    const [checkAvalibleSize, setCheckAvalibleSize] = useState(true)
     const [activeTypeIndex, setActiveTypeIndex] = useState(0);
     const [countPizzas, setCountPizzas] = useState(0);
     const [activeSize, setactiveSize] = useState(100);
@@ -30,11 +31,11 @@ const PizzaBlock: React.FC<Pizzas> = ({ id, imageUrl, name, types, sizes, price,
 
 
     const AddToCard = () => {
-
-
         if (activeSize === 100) {
             //alert('change size pizza')
+            setCheckAvalibleSize(false);
         } else {
+            setCheckAvalibleSize(true);
             const objCard = {
                 id,
                 imageUrl,
@@ -70,14 +71,19 @@ const PizzaBlock: React.FC<Pizzas> = ({ id, imageUrl, name, types, sizes, price,
                             })
                     }
                 </ul>
+                <span className={styles.wrapperCheckPizza}>{!checkAvalibleSize && <div className={styles.checkSizePizza}>Choose you size pizza!!</div>}</span>
                 <ul>
+
                     {avilableSizes.map((size, index) => {
                         return (
                             <li
                                 key={`${id}_${index}`}
-                                onClick={() => changeActiveSize(index)}
+                                onClick={() => {
+                                    changeActiveSize(index);
+                                    setCheckAvalibleSize(true);
+                                }}
                                 className={
-                                    `${!sizes.includes(size) && styles.disabled} ${activeSize === index && styles.active}`}>
+                                    `${!sizes.includes(size) && styles.disabled} ${activeSize === index && styles.active} ${!checkAvalibleSize && styles.dontChooseSize}`}>
                                 {size} cm.
                             </li >)
                     })}
@@ -102,7 +108,7 @@ const PizzaBlock: React.FC<Pizzas> = ({ id, imageUrl, name, types, sizes, price,
                     {countPizzas > 0 && <i>{countPizzas}</i>}
                 </div>
             </div>
-        </div >
+        </div>
     )
 }
 

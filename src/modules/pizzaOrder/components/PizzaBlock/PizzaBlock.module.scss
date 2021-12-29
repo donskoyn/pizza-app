@@ -1,5 +1,36 @@
 @import '../../../common/styles/colors.scss';
 
+@keyframes shake {
+
+    0%,
+    50%,
+    100% {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+    }
+
+    10%,
+    30% {
+        transform: rotate(-2deg);
+        -webkit-transform: rotate(-2deg);
+        -moz-transform: rotate(-2deg);
+        -o-transform: rotate(-2deg);
+        -ms-transform: rotate(-2deg);
+    }
+
+    20%,
+    40% {
+        transform: rotate(2deg);
+        -webkit-transform: rotate(2deg);
+        -moz-transform: rotate(2deg);
+        -o-transform: rotate(2deg);
+        -ms-transform: rotate(2deg);
+    }
+}
+
 .pizzaBlock {
     width: 280px;
     text-align: center;
@@ -28,6 +59,18 @@
         flex-direction: column;
         padding: 6px;
 
+        .wrapperCheckPizza {
+            position: relative;
+
+            .checkSizePizza {
+                color: $red;
+                top: 40px;
+                position: absolute;
+                border-bottom: 2px solid;
+                font-weight: 900;
+            }
+        }
+
         ul {
             display: flex;
             flex: 1;
@@ -37,6 +80,7 @@
             }
 
             li {
+                margin: 0 5px;
                 padding: 8px;
                 flex: 1;
                 cursor: pointer;
@@ -52,9 +96,19 @@
             }
 
             .disabled {
+                outline: 0 !important;
                 opacity: 0.4;
                 pointer-events: none;
+                animation: none !important;
             }
+
+            .dontChooseSize {
+                outline: 2px solid $red;
+                border-radius: 5px;
+                animation: shake 1.5s;
+                animation-iteration-count: infinite;
+            }
+
 
 
         }
