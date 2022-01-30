@@ -2,17 +2,15 @@ import React, { useEffect, useState } from 'react';
 import logo from '../../assets/img/pizza-logo.svg';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { getOptions } from '../../tools/getOptions';
 import { RootState } from '../../../app/store';
 import { CartObjNew } from '../../interfaces';
-import { getOptionsConstant } from '../../constants';
 import styles from './Header.module.scss';
+import { useAllCountPrice } from '../../hooks/useAllCountPrice';
 
 const Header: React.FC = (): JSX.Element => {
     const [pizzaState, setPizzaState] = useState<CartObjNew[]>([])
     const pizzasCart = useSelector(({ pizzasCart }: RootState) => pizzasCart.pizzasCart);
-    const getCountPizzas = getOptions(pizzasCart, getOptionsConstant.COUNT);
-    const getCountPrice = getOptions(pizzasCart, getOptionsConstant.PRICE);
+    const { useGetCount, useGetPrice } = useAllCountPrice(pizzasCart)
     useEffect(() => {
         setPizzaState(pizzasCart)
     }, [pizzasCart])
@@ -28,7 +26,7 @@ const Header: React.FC = (): JSX.Element => {
                 </div>
                 <div className="header__cart">
                     <Link to="cart" className={styles.buttonCart}>
-                        <span>{getCountPrice} $</span>
+                        <span>{useGetPrice()} $</span>
                         <div className={styles.button__delimiter}></div>
                         <svg
                             width="18"
@@ -59,7 +57,7 @@ const Header: React.FC = (): JSX.Element => {
                                 strokeLinejoin="round"
                             />
                         </svg>
-                        <span>{getCountPizzas}</span>
+                        <span>{useGetCount()}</span>
                     </Link>
                 </div>
             </div>
