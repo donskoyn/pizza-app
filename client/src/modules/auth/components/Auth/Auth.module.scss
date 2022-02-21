@@ -1,0 +1,82 @@
+@import '../../../common/styles/colors.scss';
+
+.wrapper {
+    min-height: 400px;
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+
+    .img {
+        position: absolute;
+        height: 83px;
+        top: 1px
+    }
+
+    .wraperForm {
+        border-radius: 7px;
+        background: whitesmoke;
+        padding: 75px 30px 25px 30px;
+
+        .inputForm {
+            margin-top: 5px;
+            display: flex;
+            align-items: center;
+            width: 270px;
+            // border: 2px solid $orange;
+            border-radius: 2px;
+
+            .labelImg {
+                position: absolute;
+                height: 35px;
+                border-right: 1.5px solid $orange;
+                padding: 0 3px;
+            }
+
+            .inputAuth {
+                border: 2px solid $orange;
+                color: $gray;
+                font-size: 16px;
+                font-weight: 700;
+                padding: 0 2px;
+                padding-left: 50px;
+                width: 100%;
+                height: 34px;
+                box-sizing: content-box;
+                border-radius: 3px;
+
+                &:focus {
+                    border: 2px solid $background;
+                }
+            }
+        }
+
+        .authButtons {
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            width: 270px;
+            text-align: center;
+
+            .button {
+                cursor: pointer;
+                width: 120px;
+                background-color: $orange;
+                padding: 10px 0;
+                text-transform: uppercase;
+                cursor: pointer;
+                transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+                font-weight: 600;
+                font-size: 16px;
+                color: $white;
+
+                &:hover {
+                    outline: 3px solid $orange;
+                    color: $black1111;
+                    transition: color 1s;
+                }
+            }
+        }
+    }
+}
