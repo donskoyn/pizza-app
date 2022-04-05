@@ -1,11 +1,21 @@
-import React, { memo } from 'react'
+import { FormikProps } from 'formik';
+import React from 'react'
 import styles from './InputMail.module.scss';
 
 interface InputMailInterface {
-    changeEmail: (e: string) => void
+    isSubmitting: boolean,
+    values: string,
+    setFieldTouched?: (email: string) => void,
+    setFieldValue?: (email: string, value: string) => void
 }
 
-const InputMail: React.FC<InputMailInterface> = ({ changeEmail }): JSX.Element => {
+const InputMail: React.FC<InputMailInterface> = ({
+    isSubmitting,
+    values,
+    setFieldTouched,
+    setFieldValue
+
+}: any) => {
 
     return (
         <div className={styles.inputForm}>
@@ -15,9 +25,15 @@ const InputMail: React.FC<InputMailInterface> = ({ changeEmail }): JSX.Element =
                     </path>
                 </svg>
             </label>
-            <input type='email' name='email' className={styles.inputAuth} placeholder="Email" onChange={(e): void => changeEmail(e.target.value)} />
+            <input
+                className={styles.inputAuth}
+                disabled={isSubmitting}
+                value={values.email}
+                onBlur={() => setFieldTouched('email')}
+                onChange={(event) => setFieldValue('email', event.target.value)}
+            />
         </div>
     )
 }
 
-export default memo(InputMail)
+export default InputMail

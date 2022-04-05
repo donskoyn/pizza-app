@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import CartPizzaOption from '../CartPizzaOption';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addPizzasCart } from '../../redux/actions/cartPizzas';
 
 import { CartObjNew } from '../../../common/interfaces';
 import styles from './CartPizzaOptionWrapper.module.scss';
 import { useAllCountPrice } from '../../../common/hooks/useAllCountPrice';
+import { RootState } from '../../../app/store';
 
 interface CartPizzaOptionWrappers {
     pizzasCart: CartObjNew[]
@@ -16,9 +17,12 @@ const CartPizzaOptionWrapper: React.FC<CartPizzaOptionWrappers> = ({ pizzasCart 
 
     const dispatch = useDispatch();
     const { useGetCount, useGetPrice } = useAllCountPrice(pizzasCart)
-
+    const pizzaCart = useSelector(({ pizzasCart }: RootState) => pizzasCart.pizzas)
     const cleanCard = () => {
         dispatch(addPizzasCart([]));
+    }
+    const pay = () => {
+        console.log(pizzaCart)
     }
     return (
         <div >
@@ -61,7 +65,7 @@ const CartPizzaOptionWrapper: React.FC<CartPizzaOptionWrappers> = ({ pizzasCart 
                         </svg>
                         <span>Back</span>
                     </Link>
-                    <div className={styles.payBtn}>
+                    <div className={styles.payBtn} onClick={pay}>
                         <span>Pay now</span>
                     </div>
                 </div>

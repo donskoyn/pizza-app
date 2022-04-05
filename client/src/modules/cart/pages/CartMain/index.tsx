@@ -6,7 +6,7 @@ import { RootState } from '../../../app/store';
 import styles from "./CartMain.module.scss";
 
 const CartMain: React.FC = (): JSX.Element => {
-    const pizzasCart = useSelector(({ pizzasCart }: RootState) => pizzasCart.pizzasCart);
+    const pizzasCart = useSelector(({ pizzasCart }: RootState) => pizzasCart.pizzas);
     return (
         <>
             {pizzasCart.length > 0 ?
