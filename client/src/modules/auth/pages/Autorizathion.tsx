@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Auth from '../components/Auth'
+import Login from '../components/Login'
 import Registration from '../components/Registration'
 
 const Autorizathion = () => {
@@ -12,7 +12,7 @@ const Autorizathion = () => {
     }
     return (
         <div>
-            {authFlag ? <Auth changeFlag={handlerChangeFlag} /> : <Registration changeFlag={handlerChangeFlag} />}
+            {authFlag ? <Login changeFlag={handlerChangeFlag} /> : <Registration changeFlag={handlerChangeFlag} />}
 
         </div>
     )

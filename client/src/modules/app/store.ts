@@ -4,12 +4,15 @@ import thunk from 'redux-thunk';
 import pizzasReducer from '../pizzaOrder/redux/reducers/pizzas';
 import filtersReducer from '../pizzaOrder/redux/reducers/filters';
 import pizzasCartReducer from '../cart/redux/reducers/cartPizzas';
+import userDataReducer from '../common/redux/reducers/userData';
+
 
 
 const rootReducer = combineReducers({
     pizzas: pizzasReducer,
     filters: filtersReducer,
-    pizzasCart: pizzasCartReducer
+    pizzasCart: pizzasCartReducer,
+    userData: userDataReducer,
 
 })
 declare global {

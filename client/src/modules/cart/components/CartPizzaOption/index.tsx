@@ -18,7 +18,7 @@ const CartPizzaOption: React.FC<CartObjNewWithIndex> = ({ id,
 }): JSX.Element => {
 
     const dispatch = useDispatch();
-    const pizzasCart = useSelector(({ pizzasCart }: RootState) => pizzasCart.pizzasCart);
+    const pizzasCart = useSelector(({ pizzasCart }: RootState) => pizzasCart.pizzas);
     const { removeCard, changeCountPizza } = useControlCart(pizzasCart, (newPizzasCartArr) => {
         dispatch(addPizzasCart(newPizzasCartArr));
     });

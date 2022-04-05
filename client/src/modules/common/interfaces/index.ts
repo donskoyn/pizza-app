@@ -24,3 +24,8 @@ export interface CartObjNewWithIndex extends CartObjNew {
     index: number
 }
 
+
+export interface authDataIntrface {
+    email: string,
+    password: string
+}

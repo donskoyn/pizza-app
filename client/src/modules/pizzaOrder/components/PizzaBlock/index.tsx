@@ -19,7 +19,7 @@ const PizzaBlock: React.FC<Pizzas> = ({ id, imageUrl, name, types, sizes, price,
     const [activeSize, setactiveSize] = useState(100);
     const changeActiveType = (index: number) => setActiveTypeIndex(index);
     const changeActiveSize = (index: number) => setactiveSize(index);
-    const cardPizzas = useSelector(({ pizzasCart }: RootState) => pizzasCart.pizzasCart);
+    const cardPizzas = useSelector(({ pizzasCart }: RootState) => pizzasCart.pizzas);
 
     const { saveInCart } = useControlCart(cardPizzas, (newPizzasCartArr) => {
         dispatch(addPizzasCart(newPizzasCartArr));

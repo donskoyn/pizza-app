@@ -1,0 +1,36 @@
+@import '../../../common/styles/colors.scss';
+
+.wrapper {
+
+    .titleWrapper {
+        display: flex;
+        align-items: center;
+
+        .title {
+            color: $gray;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .asterisk {
+            color: $red;
+            margin-right: 5px;
+        }
+    }
+
+    .inputForm {
+
+        align-items: center;
+        width: 213px;
+        border-radius: 2px;
+
+
+
+        .error {
+            height: 30px;
+            margin-top: 5px;
+            color: $red;
+            font-size: 14px;
+        }
+    }
+}

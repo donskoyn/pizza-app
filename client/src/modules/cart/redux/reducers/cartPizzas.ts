@@ -4,7 +4,7 @@ import { cartType } from '../../constants';
 
 
 interface initialPizzasCart {
-    pizzasCart: CartObjNew[]
+    pizzas: CartObjNew[]
 }
 export interface ActionCart {
     type: string,
@@ -12,7 +12,7 @@ export interface ActionCart {
 }
 
 const initialState: initialPizzasCart = {
-    pizzasCart: []
+    pizzas: []
 }
 
 const pizzasCartReducer = (
@@ -21,7 +21,7 @@ const pizzasCartReducer = (
 ): initialPizzasCart => {
     switch (action.type) {
         case cartType.ADD_PIZZASCART:
-            return { ...state, pizzasCart: action.payload }
+            return { ...state, pizzas: action.payload }
         default:
             return state
     }

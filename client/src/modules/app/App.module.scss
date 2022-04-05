@@ -9,10 +9,19 @@
     border-radius: 10px;
     max-width: 1400px;
 
+    .preload {
+        width: 100px;
+    }
+
     .content {
         padding: 40px 0;
 
     }
+}
+
+.wrapperPreloader {
+    justify-content: center;
+    display: flex;
 }
 
 body {

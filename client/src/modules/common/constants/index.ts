@@ -6,5 +6,13 @@ export enum getOptionsConstant {
 export enum changeCountPizzaConstant {
     PLUS = "PLUS",
     MINUS = "MINUS"
+}
 
+
+export enum userDataTypes {
+    REFRESH_USER = 'REFRESH_USER',
+    SET_USER = "SET_USER",
+    SET_LOADED_USER = "SET_LOADED_USER",
+    AUTHORIZETED = 'AUTHORIZETED',
+    ERROR_MESSAGE = "ERROR_MESSAGE"
 }

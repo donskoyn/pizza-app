@@ -4,10 +4,11 @@ const tokenService = require("../service/token-service");
 module.exports=function(req,res,next){
     try {
         const autorizationHeader = req.headers.authorization;
+        console.log(autorizationHeader)
         if(!autorizationHeader){
             next(ApiError.UnautorizedError())
         }
-        const accessToken= autorizationHeader.split(' ')[1];
+        const accessToken= autorizationHeader;
         if(!accessToken){
             next(ApiError.UnautorizedError())
         }

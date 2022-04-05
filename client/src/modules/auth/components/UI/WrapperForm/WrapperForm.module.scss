@@ -1,6 +1,8 @@
-@import '../../../common/styles/colors.scss';
+@import '../../../../common/styles/colors.scss';
 
 .wrapper {
+    width: max-content;
+    margin: 0 auto;
     min-height: 400px;
     display: flex;
     justify-content: start;
