@@ -1,18 +1,29 @@
 import React, { useState } from 'react'
-import Login from '../components/Login'
-import Registration from '../components/Registration'
+import { useDispatch } from 'react-redux';
+import LoginFormWithFormik from '../components/LoginForm';
+import RegistrationFormWithFormik from '../components/RegistrationForm';
+import WrapperForm from '../components/UI/WrapperForm';
 
 const Autorizathion = () => {
     const [authFlag, setAuthFlag] = useState(true);
+    const dispatch = useDispatch()
 
     const handlerChangeFlag = () => {
-        console.log('auth')
         const flag = !authFlag;
         setAuthFlag(flag)
     }
     return (
         <div>
-            {authFlag ? <Login changeFlag={handlerChangeFlag} /> : <Registration changeFlag={handlerChangeFlag} />}
+            {authFlag
+                ?
+                <WrapperForm>
+                    <LoginFormWithFormik dispatch={dispatch} changeFlag={handlerChangeFlag} />
+                </WrapperForm>
+                :
+                <WrapperForm>
+                    <RegistrationFormWithFormik dispatch={dispatch} changeFlag={handlerChangeFlag} />
+                </WrapperForm>
+            }
 
         </div>
     )

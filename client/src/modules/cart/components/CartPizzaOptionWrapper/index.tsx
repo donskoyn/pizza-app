@@ -8,6 +8,8 @@ import { CartObjNew } from '../../../common/interfaces';
 import styles from './CartPizzaOptionWrapper.module.scss';
 import { useAllCountPrice } from '../../../common/hooks/useAllCountPrice';
 import { RootState } from '../../../app/store';
+import { payOrder } from '../../../common/tools/payOptions';
+import { setCartUser } from '../../../common/redux/actions/userData';
 
 interface CartPizzaOptionWrappers {
     pizzasCart: CartObjNew[]
@@ -16,14 +18,21 @@ interface CartPizzaOptionWrappers {
 const CartPizzaOptionWrapper: React.FC<CartPizzaOptionWrappers> = ({ pizzasCart }): JSX.Element => {
 
     const dispatch = useDispatch();
-    const { useGetCount, useGetPrice } = useAllCountPrice(pizzasCart)
-    const pizzaCart = useSelector(({ pizzasCart }: RootState) => pizzasCart.pizzas)
+    const { useGetCount, useGetPrice } = useAllCountPrice(pizzasCart);
+    const pizzaCart = useSelector(({ pizzasCart }: RootState) => pizzasCart.pizzas);
+    const userData = useSelector(({ userData }: RootState) => userData.user);
+
     const cleanCard = () => {
         dispatch(addPizzasCart([]));
     }
-    const pay = () => {
-        console.log(pizzaCart)
+    const pay = async () => {
+        const cartOrder = { email: userData.email, cart: pizzaCart };
+
+        await payOrder(cartOrder, dispatch);
+        dispatch(addPizzasCart([]));
+        dispatch(setCartUser(userData.email))
     }
+
     return (
         <div >
             <div className={styles.cartTop}>

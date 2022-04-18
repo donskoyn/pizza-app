@@ -17,7 +17,7 @@ class UserService{
         
         const user= await UserModel.create({email,password:hashPassword,activationLink});
     
-        await mailService.sendActivationMail(email,`${process.env.API_URL}/api/activate/${activationLink}`);
+        //await mailService.sendActivationMail(email,`${process.env.API_URL}/api/activate/${activationLink}`);
         
         const userDto=new UserDto(user);
         const tokens = tokenService.generateTokens({...userDto});
@@ -69,20 +69,21 @@ class UserService{
 
         const user= await UserModel.findById(userData.id)
         const userDto=new UserDto(user);
-        const tokens = tokenService.generateTokens({...userDto});
+        const tokens = tokenService.generateTokens({...userDto});//refresh userDto.id
         await tokenService.saveToken(userDto.id,tokens.refreshToken);
 
         return{...tokens,user:userDto}
     }
 
-    async getAllUsers(){
-        const users = UserModel.find();
-        return users
+    async getUserdata(email){
+        const user = UserModel.findOne({email});
+        console.log(user)
+        return user
     }
     async addToCart(email,cart){
        const newCart={date:new Date(),cart}
         const user=await UserModel.findOneAndUpdate({email},{$push:{cart:newCart}},{returnOriginal:false,upsert:true});
-        console.log(newCart)
+    
         // if(!user){
         //     throw ApiError.BadRequest('User with this Email don`t found');
         // }

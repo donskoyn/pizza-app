@@ -1,3 +1,5 @@
+export const BASE_URL = "http://localhost:5810/api"
+
 export enum getOptionsConstant {
     COUNT = "COUNT",
     PRICE = "PRICE"
