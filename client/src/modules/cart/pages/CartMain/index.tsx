@@ -7,6 +7,8 @@ import styles from "./CartMain.module.scss";
 
 const CartMain: React.FC = (): JSX.Element => {
     const pizzasCart = useSelector(({ pizzasCart }: RootState) => pizzasCart.pizzas);
+    const userData = useSelector(({ userData }: RootState) => userData.user.cart);
+    console.log(userData)
     return (
         <>
             {pizzasCart.length > 0 ?

@@ -1,28 +1,40 @@
+
 import { userDataTypes } from "../../constants"
+import { ActionStateRefresh, ActionStateSet, ActionStateError, ActionAuth, ActionStateLoaded } from "../../interfaces"
+
+
+
+interface userInterface {
+    email: string,
+    id?: '',
+    cart?: [],
+    isActivated?: boolean
+}
+
+type InitialAction = ActionStateLoaded | ActionStateRefresh | ActionStateSet | ActionStateError | ActionAuth
 
 interface userDataInterface {
-    user: {},
-    loaded: boolean | any,
-    isAuth: boolean | any,
-    error: string | any,
+    user: userInterface,
+    loaded?: boolean,
+    isAuth?: boolean,
+    error?: string,
 }
 
 const initialState: userDataInterface = {
-    user: {},
+    user: {
+        email: '',
+        id: '',
+        cart: [],
+        isActivated: false
+    },
     loaded: false,
     isAuth: false,
     error: ''
-
-}
-
-interface actionUserData {
-    type: string,
-    payload: userDataInterface
 }
 
 const userDataReducer = (
     state = initialState,
-    action: actionUserData
+    action: InitialAction
 ): userDataInterface => {
     switch (action.type) {
         case userDataTypes.SET_USER:

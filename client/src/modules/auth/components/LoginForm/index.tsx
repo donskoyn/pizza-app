@@ -4,11 +4,13 @@ import { useSelector } from 'react-redux';
 import * as yup from 'yup';
 import { RootState } from '../../../app/store';
 
-import { addUser } from '../../../common/redux/actions/userData';
+import { LoginUser } from '../../../common/redux/actions/userData';
 
 import FormField from '../FormField';
-import AuthButtonsPanel from '../UI/AuthButtonsPanel/AuthButtonsPanel';
+import ChangeFormBtn from '../UI/ChangeFormBtn/ChangeFormBtn';
+
 import InputMail from '../UI/InputMail/InputMail';
+import SubmitBtn from '../UI/SubmitBtn/SubmitBtn';
 import WrapperPassword from '../UI/WrapperPassword/WrapperPassword';
 import styles from './FormLogin.module.scss'
 
@@ -33,7 +35,8 @@ const LoginForm = ({
 }: any) => {
   const erorMessage = useSelector(({ userData }: RootState) => userData.error)
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={styles.wrapper}>
+      <ChangeFormBtn changeFlag={changeFlag} title="Sign up →" />
       <FormField title='Write you Email' required={true} errorMessage={touched.email && errors.email}>
         <InputMail isSubmitting={isSubmitting} values={values.email} setFieldTouched={setFieldTouched} setFieldValue={setFieldValue} />
       </FormField>
@@ -50,7 +53,7 @@ const LoginForm = ({
         </WrapperPassword>
       </FormField>
       <div className={styles.error}>{erorMessage}</div>
-      <AuthButtonsPanel changeFlag={changeFlag} submitTitle='Login ' changeFormTitle='to sign up' />
+      <SubmitBtn title='login' />
     </form>
   )
 }
@@ -62,7 +65,7 @@ const LoginFormWithFormik = withFormik<any, any>({
     return { email: '', password: '' }
   },
   handleSubmit: async (userAuth, { props }) => {
-    props.dispatch(addUser(userAuth))
+    props.dispatch(LoginUser(userAuth))
   },
   validationSchema: yup.object().shape({
     email: yup.string().email('Must be a valid email !').max(255).required('Email is not empty !'),
@@ -76,37 +79,3 @@ export default LoginFormWithFormik
 
 
 
-/*
-const authAxios = (dispatch: Dispatch) => {
-  const authData: AuthData = JSON.parse(
-    localStorage.getItem("authData") as string
-  );
-
-  const instanceAxios = axios.create({
-    baseURL: settings.baseURL,
-    headers: {
-      Authorization: authData ? `Bearer ${authData.token}` : "",
-    },
-  });
-
-  instanceAxios.interceptors.response.use(
-    (response) => response.data,
-    (error: AxiosError) => {
-      const status = error.response?.status || 500;
-
-      switch (status) {
-        case 401: {
-          localStorageUtil.removeStorageItem("authData");
-          dispatch(authSlice.actions.setIsAuth(false));
-          return Promise.reject(error.response);
-        }
-        case 422: {
-          return Promise.reject(error.response);
-        }
-      }
-    }
-  );
-
-  return instanceAxios;
-};
-*/

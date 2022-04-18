@@ -32,6 +32,7 @@ class UserController{
                 maxAge:30*24*60*60*1000,
                 httpOnly:true
             })
+            console.log(res)
             return res.json(userData)
         }catch(err){
             next(err)
@@ -62,6 +63,7 @@ class UserController{
     async refresh(req,res,next){
         try{
             const {refreshToken}=req.cookies;
+            
             const userData = await userService.refresh(refreshToken);
             res.cookie('refreshToken',userData.refreshToken,{
                 maxAge:30*24*60*60*1000,
@@ -73,10 +75,12 @@ class UserController{
             next(err);
         }
     }
-    async getUsers(req,res,next){
+    async getUser(req,res,next){
         try{
-            const users = await userService.getAllUsers();
-            return res.json(users);
+            const{email}=req.body
+            const user = await userService.getUserdata(email);
+            console.log(user)
+            return res.json(user);
 
         }catch(err){
             
@@ -84,8 +88,9 @@ class UserController{
     }
     async addToCart(req,res,next){
         try {
+
             const{email,cart}=req.body
-            console.log(cart)
+            
             const cartUser = await userService.addToCart(email,cart);
             return res.json(cartUser);
 
