@@ -3,11 +3,6 @@ import { authDataIntrface } from "../../interfaces";
 import { login, refreshToken, registration, getUserData } from "../../tools/authOptions";
 
 
-
-
-
-
-
 export const LoginUser = (authData: authDataIntrface) => async (dispatch: Function) => {
 
     dispatch({

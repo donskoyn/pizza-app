@@ -1,0 +1,43 @@
+@import '../../../common/styles/colors.scss';
+
+
+.wrapper{   
+    width: 90%;
+    max-width: 820px;
+    margin: 20px auto;
+    padding: 25px;
+    border: 2px solid $gray7b;
+   
+    .date{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 5px;
+        border: 1px solid $black18;
+        font-weight: bold;
+        font-size: 20px;
+        line-height: 27px;
+        letter-spacing: 0.01em;
+        margin-bottom: 40px;
+        border-radius: 4px;
+    
+        span{
+            text-transform: uppercase;
+        }
+        h3{
+            padding-left: 10px;
+            color: $orange;
+        }
+    }
+    .total{
+        
+        text-decoration: underline;
+       
+        font-size: 25px;
+        font-weight: 800;
+        text-align: end;
+        span{
+            color: $orange;
+        }
+    }
+}
