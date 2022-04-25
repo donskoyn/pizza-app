@@ -105,7 +105,7 @@ const PizzaBlock: React.FC<Pizzas> = ({ id, imageUrl, name, types, sizes, price,
                         />
                     </svg>
                     <span >ADD</span>
-                    {countPizzas > 0 && <i>{countPizzas}</i>}
+                    {countPizzas > 0 ? <i>{countPizzas}</i> : <div> </div>}
                 </div>
             </div>
         </div>

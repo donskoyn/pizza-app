@@ -16,7 +16,11 @@
             display: flex;
             align-items: center;
 
-            .login {
+            .borderRadius{
+                border-radius: 0!important;
+            }
+            .btnsAuth {
+                text-align: center;
                 display: flex;
                 align-items: center;
                 border-bottom-right-radius: 30px;
@@ -28,7 +32,7 @@
                 transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
                 font-weight: 600;
                 font-size: 16px;
-                width: 75px;
+                width: 85px;
                 text-align: center;
                 box-sizing: content-box;
                 height: 23px;
@@ -40,7 +44,7 @@
                 }
 
                 svg {
-                    margin-right: 8px;
+                    margin-right: 5px;
                 }
             }
 
