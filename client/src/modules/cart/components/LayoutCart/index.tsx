@@ -1,16 +1,15 @@
-import React from 'react';
+import React from 'react'
 import { useSelector } from 'react-redux';
-import EmptyCart from '../../components/EmptyCart';
-import CartPizzaOptionWrapper from '../../components/CartPizzaOptionWrapper';
 import { RootState } from '../../../app/store';
-import styles from "./CartMain.module.scss";
+import CartPizzaOptionWrapper from '../CartPizzaOptionWrapper';
+import EmptyCart from '../EmptyCart';
+import styles from './LayoutCart.module.scss';
 
-const CartMain: React.FC = (): JSX.Element => {
+const LayoutCart = () => {
     const pizzasCart = useSelector(({ pizzasCart }: RootState) => pizzasCart.pizzas);
-    const userData = useSelector(({ userData }: RootState) => userData.user.cart);
-    console.log(userData)
+
     return (
-        <>
+        <div className={styles.wrapper}>
             {pizzasCart.length > 0 ?
                 <div className={styles.cartItems}>
                     <CartPizzaOptionWrapper pizzasCart={pizzasCart} />
@@ -19,8 +18,8 @@ const CartMain: React.FC = (): JSX.Element => {
                 <div className={styles.container}>
                     <EmptyCart />
                 </div>}
-        </>
+        </div>
     )
 }
 
-export default CartMain
+export default LayoutCart

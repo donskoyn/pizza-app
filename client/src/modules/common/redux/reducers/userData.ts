@@ -1,13 +1,18 @@
 
+import { layoutHistoryInterface } from "../../../historyCart/interfaces"
 import { userDataTypes } from "../../constants"
 import { ActionStateRefresh, ActionStateSet, ActionStateError, ActionAuth, ActionStateLoaded } from "../../interfaces"
 
 
+interface errorMessage {
+    type: string,
+    message: string
+}
 
 interface userInterface {
     email: string,
-    id?: '',
-    cart?: [],
+    id: '',
+    cart: layoutHistoryInterface[],
     isActivated?: boolean
 }
 
@@ -15,9 +20,9 @@ type InitialAction = ActionStateLoaded | ActionStateRefresh | ActionStateSet | A
 
 interface userDataInterface {
     user: userInterface,
-    loaded?: boolean,
-    isAuth?: boolean,
-    error?: string,
+    loaded: boolean,
+    isAuth: boolean,
+    error: errorMessage,
 }
 
 const initialState: userDataInterface = {
@@ -29,12 +34,12 @@ const initialState: userDataInterface = {
     },
     loaded: false,
     isAuth: false,
-    error: ''
+    error: { type: '', message: '' }
 }
 
 const userDataReducer = (
     state = initialState,
-    action: InitialAction
+    action: any
 ): userDataInterface => {
     switch (action.type) {
         case userDataTypes.SET_USER:

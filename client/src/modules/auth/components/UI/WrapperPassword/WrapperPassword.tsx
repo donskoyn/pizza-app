@@ -7,7 +7,7 @@ interface WrapperPasswordInterface {
 
 const WrapperPassword: React.FC<WrapperPasswordInterface> = ({
     children
-}: any) => {
+}) => {
     return (
         <div className={styles.inputForm}>
             <label htmlFor='password' className={styles.labelImg}>

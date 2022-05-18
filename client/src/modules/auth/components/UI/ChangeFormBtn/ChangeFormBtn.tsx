@@ -1,14 +1,15 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styles from './ChangeFormBtn.module.scss'
 
 interface ChangeFormBtnInterface {
     title: string,
-    changeFlag: () => void
+    toLink: string
 }
 
-const ChangeFormBtn: React.FC<ChangeFormBtnInterface> = ({ changeFlag, title }): JSX.Element => {
+const ChangeFormBtn: React.FC<ChangeFormBtnInterface> = ({ toLink, title }): JSX.Element => {
     return (
-        <button onClick={() => changeFlag()} className={styles.changeForm}>{title}</button>
+        <Link to={toLink} className={styles.changeForm}>{title}</Link>
     )
 }
 

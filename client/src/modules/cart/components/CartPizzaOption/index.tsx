@@ -33,7 +33,7 @@ const CartPizzaOption: React.FC<CartObjNewWithIndex> = ({ id,
             </div>
             <div className={styles.itemInfo}>
                 <h3>{name}</h3>
-                <p>{type}. {size}</p>
+                <p>{type}. {size}cm.</p>
             </div>
             <div className={styles.itemCount}>
                 <div className={styles.btnCircle} onClick={() => changeCountPizza(index, price, count, 'MINUS')}>

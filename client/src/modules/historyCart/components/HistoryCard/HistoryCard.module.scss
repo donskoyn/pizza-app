@@ -1,20 +1,24 @@
+@import '../../../common/styles/colors.scss';
+
+
 .wrapper{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom:1px solid $gray8d ;
     .img{
-        margin: 7px;
+        padding: 10px;
+        border-right:1px solid $gray8d ;
         img{
             width:120px;
             height: 120px;
-        }
-       
+        }  
     }
     .price{
         margin: 10px;
     }
     .type{
-        color: gray;
+        color: $gray8d;
     }
     .name,.price{
         font-weight: bold;

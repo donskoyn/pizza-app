@@ -27,7 +27,6 @@ const CartPizzaOptionWrapper: React.FC<CartPizzaOptionWrappers> = ({ pizzasCart 
     }
     const pay = async () => {
         const cartOrder = { email: userData.email, cart: pizzaCart };
-
         await payOrder(cartOrder, dispatch);
         dispatch(addPizzasCart([]));
         dispatch(setCartUser(userData.email))
@@ -74,9 +73,16 @@ const CartPizzaOptionWrapper: React.FC<CartPizzaOptionWrappers> = ({ pizzasCart 
                         </svg>
                         <span>Back</span>
                     </Link>
-                    <div className={styles.payBtn} onClick={pay}>
-                        <span>Pay now</span>
-                    </div>
+                    {userData.email ?
+                        <div className={styles.payBtn} onClick={pay}>
+                            <span>Pay now</span>
+                        </div>
+                        :
+                        <Link to='/auth' className={styles.payBtn}>
+                            <span>Auth</span>
+                        </Link>
+                    }
+
                 </div>
             </div>
         </div>

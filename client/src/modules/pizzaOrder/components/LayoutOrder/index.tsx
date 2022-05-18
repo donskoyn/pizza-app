@@ -8,9 +8,9 @@ import { loadPizzas, setPizzas } from '../../redux/actions/pizzas';
 import { RootState } from '../../../app/store';
 import { Pizzas } from '../../../common/interfaces';
 import LoadingBlock from '../../../common/components/LoadingBlock';
-import styles from './PanePizzas.module.scss';
+import styles from './LayoutOrder.module.scss';
 
-const PanelPizzas: React.FC = (): JSX.Element => {
+const LayoutOrder: React.FC = (): JSX.Element => {
 
     const dispatch = useDispatch();
     const typeCategories = ['All', 'Meat', 'Vegetarian', 'Grill', 'Spicy', 'Closed'];
@@ -48,4 +48,4 @@ const PanelPizzas: React.FC = (): JSX.Element => {
     )
 }
 
-export default PanelPizzas;
+export default LayoutOrder;

@@ -1,6 +1,11 @@
 @import '../../../../common/styles/colors.scss';
-
+@keyframes show{
+    from  { transform: translateX(300%); }
+    to { transform: translateX(0); }
+}
 .wrapper {
+    position: relative;
+    animation: show .8s;
     width: max-content;
     margin: 0 auto;
     min-height: 400px;

@@ -1,0 +1,19 @@
+.wrapper{
+    position: relative;
+    animation: show .8s;
+    .container {
+        width: 90%;
+        margin: 0 auto;
+        }
+    .cartItems {
+        width: 90%;
+        max-width: 820px;
+        margin: 90px auto;
+        
+        }
+}
+
+@keyframes show{
+    from  { transform: translateX(100%); }
+    to { transform: translateX(0); }
+}
