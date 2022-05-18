@@ -1,12 +1,39 @@
 .wrapper{
+    
     .title{
         padding-left: 50px;
         margin: 35px 0;
         font-weight: 800;
         font-size: 28px;
         line-height: 30px;
+        border-bottom: 2px solid;
     }
     .content{
+        position: relative;
+        animation: show .8s;
+        display: flex;
         margin-top: 60px;
+        justify-content: center;
+        justify-content: space-around;
+        .card{
+            min-width: 600px;
+            .emptyHistory{
+            
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+                border: 3px solid orange;
+                border-radius: 5px;
+                color: cadetblue;
+                font-size: 30px;
+            }
+        }
     }
+}
+
+@keyframes show{
+    from  { transform: translateX(100%); }
+    to { transform: translateX(0); }
 }

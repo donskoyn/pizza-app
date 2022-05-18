@@ -1,6 +1,8 @@
 import { withFormik } from 'formik'
 import React from 'react'
+import { useSelector } from 'react-redux';
 import * as yup from 'yup';
+import { RootState } from '../../../app/store';
 import { registrationUser } from '../../../common/redux/actions/userData';
 import FormField from '../FormField';
 import ChangeFormBtn from '../UI/ChangeFormBtn/ChangeFormBtn';
@@ -11,8 +13,6 @@ import WrapperPassword from '../UI/WrapperPassword/WrapperPassword';
 import styles from './RegistrationForm.module.scss'
 
 const RegistrationForm = ({
-    changeFlag,
-    dispatch,
     handleSubmit,
     values,
     touched,
@@ -20,11 +20,11 @@ const RegistrationForm = ({
     isSubmitting,
     setFieldTouched,
     setFieldValue
-    // FormikProps<LoginFormInterface>
 }: any) => {
+    const erorMessage = useSelector(({ userData }: RootState) => userData.error)
     return (
         <form onSubmit={handleSubmit} className={styles.wrapper}>
-            <ChangeFormBtn changeFlag={changeFlag} title="Sign in →" />
+            <ChangeFormBtn toLink='/login' title="Sign in →" />
             <FormField title='Write you Email' required={true} errorMessage={touched.email && errors.email}>
                 <InputMail isSubmitting={isSubmitting} values={values.email} setFieldTouched={setFieldTouched} setFieldValue={setFieldValue} />
             </FormField>
@@ -52,6 +52,7 @@ const RegistrationForm = ({
                     />
                 </WrapperPassword>
             </FormField>
+            <div className={styles.error}>{erorMessage.type === 'reg' && erorMessage.message}</div>
             <SubmitBtn title='Registration' />
         </form>
     )

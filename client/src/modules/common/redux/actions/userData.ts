@@ -3,16 +3,30 @@ import { authDataIntrface } from "../../interfaces";
 import { login, refreshToken, registration, getUserData } from "../../tools/authOptions";
 
 
+export const LogOutUser = () => (dispatch: Function) => {
+
+    dispatch({
+        type: userDataTypes.SET_LOADED_USER,
+        payload: false
+    });
+    dispatch({
+        type: userDataTypes.SET_USER,
+        payload: []
+    });
+    dispatch({
+        type: userDataTypes.SET_LOADED_USER,
+        payload: true
+    });
+}
+
 export const LoginUser = (authData: authDataIntrface) => async (dispatch: Function) => {
 
     dispatch({
         type: userDataTypes.SET_LOADED_USER,
         payload: false
     });
-
     try {
         const data = await login(authData, dispatch);
-        console.log(data)
         dispatch({
             type: userDataTypes.SET_USER,
             payload: data.user
@@ -29,7 +43,7 @@ export const LoginUser = (authData: authDataIntrface) => async (dispatch: Functi
     } catch (err) {
         dispatch({
             type: userDataTypes.ERROR_MESSAGE,
-            payload: 'Invalid user or password'
+            payload: { type: "login", message: 'Invalid user or password' }
         })
     }
     dispatch({
@@ -63,7 +77,7 @@ export const registrationUser = (registrationData: authDataIntrface) => async (d
     } catch (err) {
         dispatch({
             type: userDataTypes.ERROR_MESSAGE,
-            payload: 'Invalid user or password'
+            payload: { type: "reg", message: 'Invalid mail or password' }
         })
     }
     dispatch({

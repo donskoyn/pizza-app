@@ -22,8 +22,6 @@ interface LoginFormInterface {
 }
 
 const LoginForm = ({
-  changeFlag,
-  dispatch,
   handleSubmit,
   values,
   touched,
@@ -31,12 +29,11 @@ const LoginForm = ({
   isSubmitting,
   setFieldTouched,
   setFieldValue
-  // FormikProps<LoginFormInterface>
 }: any) => {
   const erorMessage = useSelector(({ userData }: RootState) => userData.error)
   return (
     <form onSubmit={handleSubmit} className={styles.wrapper}>
-      <ChangeFormBtn changeFlag={changeFlag} title="Sign up →" />
+      <ChangeFormBtn toLink='/registration' title="Sign up →" />
       <FormField title='Write you Email' required={true} errorMessage={touched.email && errors.email}>
         <InputMail isSubmitting={isSubmitting} values={values.email} setFieldTouched={setFieldTouched} setFieldValue={setFieldValue} />
       </FormField>
@@ -52,7 +49,7 @@ const LoginForm = ({
           />
         </WrapperPassword>
       </FormField>
-      <div className={styles.error}>{erorMessage}</div>
+      <div className={styles.error}>{erorMessage.type === 'login' && erorMessage.message}</div>
       <SubmitBtn title='login' />
     </form>
   )

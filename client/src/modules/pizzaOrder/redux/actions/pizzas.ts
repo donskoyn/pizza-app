@@ -7,6 +7,7 @@ import { pizzaOrderTypes } from '../../constants';
 import axios from 'axios';
 import { Pizzas } from '../../../common/interfaces';
 import { Category, SortBy } from '../types';
+import { BASE_URL } from '../../../common/constants';
 
 
 interface SetPizzas {
@@ -36,7 +37,7 @@ export const loadPizzas = (category: Category, sortBy: SortBy) => async (dispatc
 
 
 
-    const { data } = await axios.post('http://localhost:5810/api/pizzas', { category: `${category.nameCategory === "All" ? '' : category.nameCategory}` })
+    const { data } = await axios.post(`${BASE_URL}/pizzas`, { category: `${category.nameCategory === "All" ? '' : category.nameCategory}` })
 
     dispatch(setPizzas(data))
 

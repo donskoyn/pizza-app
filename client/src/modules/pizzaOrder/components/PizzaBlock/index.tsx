@@ -32,7 +32,6 @@ const PizzaBlock: React.FC<Pizzas> = ({ id, imageUrl, name, types, sizes, price,
 
     const AddToCard = () => {
         if (activeSize === 100) {
-            //alert('change size pizza')
             setCheckAvalibleSize(false);
         } else {
             setCheckAvalibleSize(true);
@@ -91,7 +90,7 @@ const PizzaBlock: React.FC<Pizzas> = ({ id, imageUrl, name, types, sizes, price,
             </div>
             <div className={styles.__bottom}>
                 <div className={styles.__price}>{price} $</div>
-                <div className={styles.buttonOrder} onClick={AddToCard}>
+                <div className={styles.addTocart} onClick={AddToCard}>
                     <svg
                         width="12"
                         height="12"
@@ -105,7 +104,7 @@ const PizzaBlock: React.FC<Pizzas> = ({ id, imageUrl, name, types, sizes, price,
                         />
                     </svg>
                     <span >ADD</span>
-                    {countPizzas > 0 ? <i>{countPizzas}</i> : <div> </div>}
+                    {countPizzas > 0 ? <i>{countPizzas}</i> : <i className={styles.emptyCount}></i>}
                 </div>
             </div>
         </div>

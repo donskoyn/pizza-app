@@ -1,18 +1,31 @@
 @import '../../../common/styles/colors.scss';
 
 
+
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    20% { opacity: 0; }
+    40% { opacity: 0.3; }
+    60% { opacity: 0.5; }
+    80% { opacity: 0.9; }
+    100% { opacity: 1; }
+  }
 .wrapper{   
-    width: 90%;
+    animation:  fadeIn 2s;
+    min-width: 600px;
     max-width: 820px;
-    margin: 20px auto;
+    margin: 2px auto;
     padding: 25px;
-    border: 2px solid $gray7b;
-   
+    border-top: 2px dashed $black18;
+    border-bottom: 2px dashed $black18;
+    border-left: 2px solid $black18;
+    border-right: 2px solid $black18;
+    border-radius: 3px;
     .date{
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 5px;
+        padding: 10px 5px;
         border: 1px solid $black18;
         font-weight: bold;
         font-size: 20px;
@@ -30,12 +43,11 @@
         }
     }
     .total{
-        
         text-decoration: underline;
-       
         font-size: 25px;
         font-weight: 800;
         text-align: end;
+        margin-top: 20px;
         span{
             color: $orange;
         }

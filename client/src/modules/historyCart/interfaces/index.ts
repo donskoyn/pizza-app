@@ -7,5 +7,5 @@ export interface arrayOrderInterface {
 }
 export interface layoutHistoryInterface {
     date: string,
-    arrayOrder: arrayOrderInterface[]
+    cart: arrayOrderInterface[]
 }

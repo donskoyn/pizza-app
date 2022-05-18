@@ -81,7 +81,8 @@ class UserService{
         return user
     }
     async addToCart(email,cart){
-       const newCart={date:new Date(),cart}
+        
+        const newCart={date:new Date(),cart}
         const user=await UserModel.findOneAndUpdate({email},{$push:{cart:newCart}},{returnOriginal:false,upsert:true});
     
         // if(!user){
