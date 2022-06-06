@@ -52,6 +52,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    
 }
 
 .cartBottom {
@@ -120,7 +121,6 @@
             transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
             border: 1px solid transparent;
             user-select: none;
-
             span {
                 color: $white;
             }

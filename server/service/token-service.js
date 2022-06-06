@@ -3,7 +3,7 @@ const tokenModel=require('../models/token-model');
 
 class TokenService{
     generateTokens({email,id}){
-        const accessToken=jwt.sign({email,id},process.env.JWT_ACCESS_SECRET,{expiresIn:'30m'})
+        const accessToken=jwt.sign({email,id},process.env.JWT_ACCESS_SECRET,{expiresIn:'14d'})
         const refreshToken=jwt.sign({email,id},process.env.JWT_REFRESH_SECRET,{expiresIn:'30d'})
         return{
             accessToken,

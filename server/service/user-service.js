@@ -84,16 +84,6 @@ class UserService{
         
         const newCart={date:new Date(),cart}
         const user=await UserModel.findOneAndUpdate({email},{$push:{cart:newCart}},{returnOriginal:false,upsert:true});
-    
-        // if(!user){
-        //     throw ApiError.BadRequest('User with this Email don`t found');
-        // }
-        // user.cart={
-        //     time:Date.UTC,
-        //     cart
-        // }
-        // user.save()
-
         return user
     }
 }

@@ -60,7 +60,7 @@ export const registrationUser = (registrationData: authDataIntrface) => async (d
     });
     try {
         const data = await registration(registrationData, dispatch)
-        console.log(data);
+
         dispatch({
             type: userDataTypes.SET_USER,
             payload: data.user
@@ -113,6 +113,8 @@ export const refreshUser = () => async (dispatch: Function) => {
     });
 }
 
+
+
 export const setCartUser = (emailUser: string) => async (dispatch: Function) => {
     dispatch({
         type: userDataTypes.SET_LOADED_USER,
@@ -120,7 +122,7 @@ export const setCartUser = (emailUser: string) => async (dispatch: Function) => 
     });
     try {
         const data = await getUserData(emailUser, dispatch);
-        console.log(data)
+
         dispatch({
             type: userDataTypes.REFRESH_USER,
             payload: data
@@ -139,6 +141,35 @@ export const setCartUser = (emailUser: string) => async (dispatch: Function) => 
         type: userDataTypes.SET_LOADED_USER,
         payload: true
     });
+}
+
+
+export const updatesTokens = () => async (dispatch: Function) => {
+    dispatch({
+        type: userDataTypes.SET_LOADED_USER,
+        payload: false
+    });
+    try {
+        const data = await refreshToken(dispatch);
+        dispatch({
+            type: userDataTypes.REFRESH_USER,
+            payload: data.user
+        });
+        localStorage.setItem('token', data.accessToken);
+
+    } catch (err) {
+        console.log(err)
+    }
+    dispatch({
+        type: userDataTypes.SET_LOADED_USER,
+        payload: true
+    });
+}
+export const setUserData = (res: any) => (dispatch: Function) => {
+    dispatch({
+        type: userDataTypes.SET_USER,
+        payload: res.data
+    })
 }
 
 export const changeIsAuth = (type: boolean) => ({

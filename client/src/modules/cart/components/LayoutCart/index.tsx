@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../app/store';
 import CartPizzaOptionWrapper from '../CartPizzaOptionWrapper';
@@ -22,4 +22,4 @@ const LayoutCart = () => {
     )
 }
 
-export default LayoutCart
+export default memo(LayoutCart)

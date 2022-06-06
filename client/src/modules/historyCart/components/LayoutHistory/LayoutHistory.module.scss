@@ -12,11 +12,15 @@
         position: relative;
         animation: show .8s;
         display: flex;
+        flex-wrap: wrap;
         margin-top: 60px;
         justify-content: center;
         justify-content: space-around;
         .card{
             min-width: 600px;
+            @media (max-width:960px) {
+                min-width: 100%;
+            }
             .emptyHistory{
             
                 position: relative;

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { Link } from 'react-router-dom';
 import imgEmptyCart from '../../../common/assets/img/empty-cart.png';
 import styles from './EmptyCart.module.scss';
@@ -19,4 +19,4 @@ const EmptyCart: React.FC = (): JSX.Element => {
     )
 }
 
-export default EmptyCart
+export default memo(EmptyCart)
