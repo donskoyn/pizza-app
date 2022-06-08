@@ -13,7 +13,6 @@ class UserController{
 
             const {email,password}=req.body;
             const userData=await userService.registration(email,password);
-         
             res.cookie('refreshToken',userData.refreshToken,{
                 maxAge:30*24*60*60*1000,
                 httpOnly:true
@@ -32,7 +31,7 @@ class UserController{
                 maxAge:30*24*60*60*1000,
                 httpOnly:true
             })
-            console.log(res)
+        
             return res.json(userData)
         }catch(err){
             next(err)
@@ -79,11 +78,10 @@ class UserController{
         try{
             const{email}=req.body
             const user = await userService.getUserdata(email);
-            console.log(user)
             return res.json(user);
 
         }catch(err){
-            
+            next(err)
         }
     }
     async addToCart(req,res,next){
@@ -94,8 +92,8 @@ class UserController{
             const cartUser = await userService.addToCart(email,cart);
             return res.json(cartUser);
 
-        } catch (error) {
-            
+        } catch (err) {
+            next(err)
         }
     }
 }

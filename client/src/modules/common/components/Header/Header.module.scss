@@ -11,11 +11,20 @@
         justify-content: space-between;
         width: 90%;
         margin: 0 auto;
-
+        @media (max-width:680px) {
+            flex-direction: column;
+            width: 100%;
+        }
         .headerCart {
             display: flex;
             align-items: center;
-
+            flex-wrap: wrap;
+            @media (max-width:680px) {
+                display: block;
+                width: 100%;
+                margin-top: 20px;
+                
+            }
             .borderRadius{
                 border-radius: 0!important;
             }
@@ -38,7 +47,12 @@
                 height: 23px;
                 border: 1px solid transparent;
                 border-left: 1px solid $white;
-
+                @media (max-width:680px) {
+                    border: 0!important;
+                    border-radius: 0;
+                    width: 100%;
+                    margin: 5px 0 5px 0;
+                }
                 span {
                     color: $white;
                 }
@@ -66,7 +80,13 @@
                 border: 1px solid transparent;
                 user-select: none;
                 color: $white;
-
+                @media (max-width:680px) {
+                    border: 0!important;
+                    border-radius: 0;
+                    width: 100%;
+                    margin: 5px 0 5px 0;
+                    justify-content: start;
+                }
                 span {
                     font-weight: 600;
                     font-size: 16px;

@@ -8,6 +8,6 @@ interface payOrderInterface {
 export const payOrder = async (cartOrder: payOrderInterface, dispatch: Function) => {
 
     const axios = AxiosConfig(dispatch);
-    const { data } = await axios.post('/addtocart', cartOrder)
+    const { data } = await axios.post('/addtocart', cartOrder);
     return data
 }

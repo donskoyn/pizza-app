@@ -7,15 +7,20 @@
     background-color: $white;
     margin: 0 auto;
     border-radius: 10px;
+    overflow-x: hidden;
     max-width: 1400px;
-
+    @media (max-width:960px) {
+        width:100%
+    }
     .preload {
         width: 100px;
     }
 
     .content {
         padding: 40px 0;
-
+        @media (max-width:960px) {
+            padding: 0;
+        }
     }
 }
 
