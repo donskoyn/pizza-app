@@ -1,62 +1,57 @@
-import { userDataTypes } from "../constants"
+import { userDataTypes } from '../constants';
 
 export interface Pizzas {
-    id: number,
-    imageUrl: string,
-    name: string,
-    types: string[],
-    sizes: number[],
-    price: number,
-    category?: string,
-    rating?: number
-
+    _id: string;
+    imageUrl: string;
+    name: string;
+    types: string[];
+    sizes: number[];
+    price: number;
+    category?: string;
+    rating: number;
+    liked: string[];
 }
-
 
 export interface CartObjNew {
-    id: number,
-    imageUrl: string,
-    name: string,
-    price: number,
-    type: string,
-    size: number,
-    count: number
+    _id: string;
+    imageUrl: string;
+    name: string;
+    price: number;
+    type: string;
+    size: number;
+    count: number;
 }
 export interface CartObjNewWithIndex extends CartObjNew {
-    index: number
+    index: number;
 }
-
 
 export interface authDataIntrface {
-    email: string,
-    password: string
+    email: string;
+    password: string;
 }
-
 
 ///redux userDataActions
 
 export interface ActionStateLoaded {
-    type: userDataTypes.SET_LOADED_USER,
-    payload: boolean
-
-};
+    type: userDataTypes.SET_LOADED_USER;
+    payload: boolean;
+}
 
 export interface ActionStateRefresh {
-    type: userDataTypes.REFRESH_USER,
-    payload: { email: string }
+    type: userDataTypes.REFRESH_USER;
+    payload: { email: string };
 }
 export interface ActionStateSet {
-    type: userDataTypes.SET_USER,
-    payload: { email: string }
+    type: userDataTypes.SET_USER;
+    payload: { email: string };
 }
 
 export interface ActionStateError {
-    type: userDataTypes.ERROR_MESSAGE,
-    payload: string
+    type: userDataTypes.ERROR_MESSAGE;
+    payload: string;
 }
 
 export interface ActionAuth {
-    type: userDataTypes.AUTHORIZETED,
-    payload: boolean
+    type: userDataTypes.AUTHORIZETED;
+    payload: boolean;
 }
-

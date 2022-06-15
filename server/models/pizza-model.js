@@ -9,7 +9,8 @@ const PizzaSchema=new Schema({
     sizes:{type:Array,required:false},
     price:{type:Number,required:true},
     category:{type:String,required:true},
-    rating:{type:String,required:false}
+    rating:{type:Number,required:false},
+    liked:{type:Array,required:false}
 })
 
 

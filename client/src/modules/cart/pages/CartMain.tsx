@@ -2,7 +2,7 @@ import React from 'react';
 import LayoutCart from '../components/LayoutCart';
 
 const CartMain: React.FC = (): JSX.Element => {
-    return <LayoutCart />
-}
+    return <LayoutCart />;
+};
 
-export default CartMain
+export default CartMain;

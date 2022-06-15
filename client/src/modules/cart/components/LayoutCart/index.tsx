@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import { memo } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../app/store';
 import CartPizzaOptionWrapper from '../CartPizzaOptionWrapper';
@@ -10,16 +10,17 @@ const LayoutCart = () => {
 
     return (
         <div className={styles.wrapper}>
-            {pizzasCart.length > 0 ?
+            {pizzasCart.length > 0 ? (
                 <div className={styles.cartItems}>
                     <CartPizzaOptionWrapper pizzasCart={pizzasCart} />
                 </div>
-                :
+            ) : (
                 <div className={styles.container}>
                     <EmptyCart />
-                </div>}
+                </div>
+            )}
         </div>
-    )
-}
+    );
+};
 
-export default memo(LayoutCart)
+export default memo(LayoutCart);

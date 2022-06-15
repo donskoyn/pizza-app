@@ -1,9 +1,7 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import LayoutOrder from '../components/LayoutOrder';
+import LayoutOrder from "../components/LayoutOrder";
 
 const PanelPizzas: React.FC = (): JSX.Element => {
-
-    return <LayoutOrder />
-}
+    return <LayoutOrder />;
+};
 
 export default PanelPizzas;

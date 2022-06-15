@@ -4,14 +4,11 @@ import { RootState } from '../../../app/store';
 import { setSortBy } from '../../redux/actions/filters';
 import styles from './SortByPopUp.module.scss';
 
-
-
 const SortByPopUp: React.FC = (): JSX.Element => {
-
     const dispatch = useDispatch();
     const activeSort = useSelector(({ filters }: RootState) => filters.sortBy);
     const [openPopUp, setOpenPopUp] = useState(false);
-    const [sortName, setSortName] = useState(['popularity', 'price']);
+    const [sortName] = useState(['popularity', 'price']);
     const sortRef = useRef() as React.MutableRefObject<HTMLDivElement>;
     const changeActivePopUp = () => setOpenPopUp(!openPopUp);
 
@@ -45,22 +42,29 @@ const SortByPopUp: React.FC = (): JSX.Element => {
                 <b>Sort by:</b>
                 <span onClick={changeActivePopUp}>{activeSort.sortName}</span>
             </div>
-            {openPopUp && <div className={styles.__popup}>
-                <ul>
-                    {sortName.map((name: string, i: number) => {
-                        return (
-                            <li key={`${name}_${i}`}
-                                onClick={() => changeActiveSortObj(name, i)}
-                                className={activeSort.sortName === name && activeSort.index === i ? styles.active : ''}>
-                                {name}
-                            </li>
-                        )
-                    })}
-                </ul>
-            </div>
-            }
+            {openPopUp && (
+                <div className={styles.__popup}>
+                    <ul>
+                        {sortName.map((name: string, i: number) => {
+                            return (
+                                <li
+                                    key={`${name}_${i}`}
+                                    onClick={() => changeActiveSortObj(name, i)}
+                                    className={
+                                        activeSort.sortName === name && activeSort.index === i
+                                            ? styles.active
+                                            : ''
+                                    }
+                                >
+                                    {name}
+                                </li>
+                            );
+                        })}
+                    </ul>
+                </div>
+            )}
         </div>
-    )
-}
+    );
+};
 
 export default React.memo(SortByPopUp);
