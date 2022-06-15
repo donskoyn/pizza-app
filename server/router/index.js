@@ -18,6 +18,7 @@ router.post('/user',authMiddleware,userController.getUser);
 router.post('/pizzas',PizzaController.getPizzas);
 router.post('/addpizza',PizzaController.addPizza);
 router.post('/addtocart',authMiddleware,userController.addToCart);
+router.post('/like',PizzaController.likePizza)
 
 
 module.exports=router

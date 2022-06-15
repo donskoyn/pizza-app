@@ -1,17 +1,13 @@
-import { ActionCart } from "../../cart/redux/reducers/cartPizzas";
-import { changeCountPizzaConstant } from "../constants";
-import { CartObjNew } from "../interfaces";
-
+import { changeCountPizzaConstant } from '../constants';
+import { CartObjNew } from '../interfaces';
 
 export const useControlCart = (arrCarts: CartObjNew[], callback: (cart: CartObjNew[]) => void) => {
-
     const newArr = [...arrCarts];
-
 
     const removeCard = (index: number) => {
         newArr.splice(index, 1);
         callback(newArr);
-    }
+    };
 
     const changeCountPizza = (index: number, price: number, count: number, action: string) => {
         if (action === changeCountPizzaConstant.PLUS) {
@@ -27,22 +23,31 @@ export const useControlCart = (arrCarts: CartObjNew[], callback: (cart: CartObjN
             }
         }
         callback(newArr);
-    }
-
+    };
 
     const saveInCart = (objNewCart: CartObjNew) => {
-        let findObj = arrCarts.find(pizza => pizza.id === objNewCart.id && pizza.type === objNewCart.type && pizza.size === objNewCart.size);
+        const findObj = arrCarts.find(
+            (pizza) =>
+                pizza._id === objNewCart._id &&
+                pizza.type === objNewCart.type &&
+                pizza.size === objNewCart.size,
+        );
         if (findObj) {
-            findObj.count++
-            findObj.price += objNewCart.price
-            const newCard = arrCarts.filter((v, i, a) => a.findIndex(findObj => (findObj.id === v.id && findObj.type === v.type && findObj.size === v.size)) === i);
+            findObj.count++;
+            findObj.price += objNewCart.price;
+            const newCard = arrCarts.filter(
+                (v, i, a) =>
+                    a.findIndex(
+                        (findObj) =>
+                            findObj._id === v._id &&
+                            findObj.type === v.type &&
+                            findObj.size === v.size,
+                    ) === i,
+            );
             callback(newCard);
-        }
-        else {
+        } else {
             callback([...arrCarts, objNewCart]);
         }
-    }
-    return { removeCard, changeCountPizza, saveInCart }
-
-
-}
+    };
+    return { removeCard, changeCountPizza, saveInCart };
+};

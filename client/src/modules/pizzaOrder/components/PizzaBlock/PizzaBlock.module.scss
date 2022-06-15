@@ -1,7 +1,6 @@
 @import '../../../common/styles/colors.scss';
 
 @keyframes shake {
-
     0%,
     50%,
     100% {
@@ -36,23 +35,39 @@
     text-align: center;
     margin-bottom: 65px;
 
+    .wrapperRaiting {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .numberRaiting {
+            font-size: 1.2em;
+            min-width: 20px;
+            font-weight: bold;
+        }
+        .like {
+            cursor: pointer;
+            &:hover {
+                fill: $orange;
+            }
+        }
+    }
     &:not(:nth-of-type(4n)) {
         margin-right: 35px;
     }
 
-
-    .__image {
+    .image {
         width: 260px;
     }
 
-    .__title {
+    .title {
         font-size: 20px;
         font-weight: 900;
         letter-spacing: 1%;
         margin-bottom: 20px;
     }
 
-    .__selector {
+    .selector {
         display: flex;
         background-color: $grayF3;
         border-radius: 10px;
@@ -108,20 +123,17 @@
                 animation: shake 1.5s;
                 animation-iteration-count: infinite;
             }
-
-
-
         }
     }
 
-    .__bottom {
+    .bottom {
         display: flex;
         align-items: center;
         justify-content: space-between;
         margin-top: 20px;
     }
 
-    .__price {
+    .price {
         font-weight: bold;
         font-size: 22px;
         line-height: 27px;
@@ -143,7 +155,7 @@
         -webkit-touch-callout: none;
         -webkit-user-select: none;
         user-select: none;
-        .emptyCount{
+        .emptyCount {
             width: 0;
             height: 22px;
             visibility: hidden;

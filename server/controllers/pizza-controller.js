@@ -23,6 +23,17 @@ class PizzaController{
             return next(ApiError.BadRequestPizaa('Invalid id pizza'))
         }
     }
+    async likePizza(req,res,next){
+        try {
+            const {_id,email}=req.body;
+            const pizza=await pizzaService.likePizza(_id,email);
+            return res.json(pizza)
+        } catch (err) {
+            next(err)
+        }
+       
+
+    }
     
 }
 

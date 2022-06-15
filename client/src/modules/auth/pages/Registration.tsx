@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import RegistrationFormWithFormik from '../components/RegistrationForm';
 import WrapperForm from '../components/UI/WrapperForm';
 
 const Registration: React.FC = (): JSX.Element => {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
 
     return (
         <div>
@@ -12,7 +12,7 @@ const Registration: React.FC = (): JSX.Element => {
                 <RegistrationFormWithFormik dispatch={dispatch} />
             </WrapperForm>
         </div>
-    )
-}
+    );
+};
 
-export default Registration
+export default Registration;
